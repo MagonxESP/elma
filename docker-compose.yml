@@ -1,0 +1,52 @@
+version: '3'
+
+services:
+  backend:
+    build: .
+    restart: unless-stopped
+    command:
+      - ":elma:backend:run"
+    links:
+      - db
+      - rabbitmq
+    depends_on:
+      - db
+      - rabbitmq
+    environment:
+      ELMA_DB_CONNECTION_URL: "jdbc:mysql://db:3306/elma"
+      ELMA_DB_USERNAME: "root"
+      ELMA_DB_PASSWORD: "root"
+
+  bot:
+    build: apps/elma/telegram_bot
+    restart: unless-stopped
+    links:
+      - db
+      - rabbitmq
+    depends_on:
+      - db
+      - rabbitmq
+
+  db:
+    image: mariadb:10.7.1
+    restart: unless-stopped
+    ports:
+      - "33306:3306"
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "--user=root", "--password=root", "--host=127.0.0.1", "ping", "--silent" ]
+      interval: 2s
+      timeout: 10s
+      retries: 10
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: elma
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+
+  rabbitmq:
+    image: rabbitmq:3.9.12-management
+    restart: unless-stopped
+    ports:
+      - "15672:15672"
+    volumes:
+      - ./config/rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
