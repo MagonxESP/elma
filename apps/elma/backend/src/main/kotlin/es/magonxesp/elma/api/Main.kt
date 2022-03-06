@@ -1,7 +1,11 @@
 package es.magonxesp.elma.api
 
-fun main() {
-    println("elma backend")
+import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.runApplication
 
-    while (true) { }
+@SpringBootApplication
+class BackendApplication
+
+fun main(args: Array<String>) {
+    runApplication<BackendApplication>(*args)
 }
