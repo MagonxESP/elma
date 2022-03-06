@@ -11,7 +11,7 @@ $ cd apps/elma/telegram_bot
 $ cp .env.example .env
 ```
 
-Para ejecutar el bot necesitamos python 3.6 y tenemos que instalar las dependencias y ejecutarlo con python
+Para ejecutar el bot necesitamos python 3.10 y tenemos que instalar las dependencias y ejecutarlo con python
 ```sh
 $ pip install -r requirements.txt
 $ python -m elma
