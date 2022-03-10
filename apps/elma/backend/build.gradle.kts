@@ -7,13 +7,13 @@ plugins {
 
 dependencies {
     implementation(project(":elma"))
-    implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+    implementation("org.springframework.boot:spring-boot-starter-web:2.6.4")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.1")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    implementation("org.springframework.session:spring-session-core")
+    implementation("org.springframework.session:spring-session-core:2.6.2")
 
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.springframework.boot:spring-boot-starter-test:2.6.4")
 }
 
 application {
