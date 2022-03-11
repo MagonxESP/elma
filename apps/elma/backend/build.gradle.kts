@@ -19,3 +19,16 @@ dependencies {
 application {
     mainClass.set("es.magonxesp.elma.api.MainKt")
 }
+
+tasks.withType<Jar>() {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    manifest {
+        attributes(
+            "Main-Class" to "es.magonxesp.elma.api.MainKt",
+            "Class-Path" to configurations.compileClasspath.get().map { it.name }.joinToString(" ")
+        )
+    }
+
+    from(configurations.compileClasspath.get().map { if (it.isDirectory) it else zipTree(it) })
+}

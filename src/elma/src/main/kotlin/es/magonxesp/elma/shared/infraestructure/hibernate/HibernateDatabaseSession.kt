@@ -53,9 +53,9 @@ class HibernateDatabaseSession {
     fun open() {
         registry = StandardServiceRegistryBuilder()
             .configure("config/hibernate/hibernate.xml")
-            .applySetting("connection.url", System.getenv("ELMA_DB_CONNECTION_URL"))
-            .applySetting("connection.username", System.getenv("ELMA_DB_USERNAME"))
-            .applySetting("connection.password", System.getenv("ELMA_DB_PASSWORD"))
+            .applySetting("hibernate.connection.url", System.getenv("ELMA_DB_CONNECTION_URL"))
+            .applySetting("hibernate.connection.username", System.getenv("ELMA_DB_USERNAME"))
+            .applySetting("hibernate.connection.password", System.getenv("ELMA_DB_PASSWORD"))
             .build()
 
         metadata = MetadataSources(registry).metadataBuilder.build()

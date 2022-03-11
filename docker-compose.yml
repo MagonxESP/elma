@@ -7,7 +7,9 @@ services:
     ports:
       - "8080:8080"
     command:
-      - ":elma:backend:run"
+      - "java"
+      - "-jar"
+      - "apps/elma/backend/build/libs/backend-1.0-SNAPSHOT-plain.jar"
     links:
       - db
       - rabbitmq
