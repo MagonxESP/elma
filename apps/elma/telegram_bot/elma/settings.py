@@ -7,6 +7,9 @@ ENV_FILE = os.path.join(ROOT_DIRECTORY, ".env")
 if os.path.exists(ENV_FILE):
     load_dotenv(ENV_FILE)
 
+# API
+ELMA_BACKEND_API_BASE_URL = os.getenv("ELMA_BACKEND_API_BASE_URL")
+
 # Telegram Bot
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 

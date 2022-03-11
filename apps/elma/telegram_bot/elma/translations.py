@@ -14,6 +14,7 @@ translations = {
     "less-than-middle": "Menos de la mitad",
     "middle": "La mitad",
     "more-than-middle": "Mas de la mitad",
+    "create_user_error": "Ha ocurrido un error al conectarse con la API vuelve a intentar ejecutar el comando /start mas tarde",
 }
 
 

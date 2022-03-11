@@ -3,7 +3,9 @@
 	run \
 	stop \
 	backend-build-run \
-	backend-run
+	backend-run \
+	telegram-bot-build-run \
+	telegram-bot-run
 
 build-run:
 	./docker-compose.sh up -d --build
@@ -24,3 +26,11 @@ backend-build-run:
 backend-run:
 	./docker-compose.sh stop backend
 	./docker-compose.sh up -d backend
+
+telegram-bot-build-run:
+	./docker-compose.sh stop bot
+	./docker-compose.sh up -d --build bot
+
+telegram-bot-run:
+	./docker-compose.sh stop bot
+	./docker-compose.sh up -d bot
