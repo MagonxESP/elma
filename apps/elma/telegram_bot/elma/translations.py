@@ -15,6 +15,7 @@ translations = {
     "middle": "La mitad",
     "more-than-middle": "Mas de la mitad",
     "create_user_error": "Ha ocurrido un error al conectarse con la API vuelve a intentar ejecutar el comando /start mas tarde",
+    "create_bottle_error": "Ha ocurrido un error al registrar tu botella, intentalo de nuevo",
 }
 
 

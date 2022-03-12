@@ -5,6 +5,8 @@ from telegram import Update, Bot
 from telegram.ext import CallbackContext, RegexHandler
 from elma.translations import translation
 from elma.conversations.handlers.ask_drinked_amount import send_question
+import elma.api.user as user_api
+import elma.api.bottle as bottle_api
 
 # Regex patterns
 CAPACITY_REPLY_REGEX = "(\d+(,\d{1,2})?)(\ litros)?"
@@ -19,8 +21,8 @@ REPLY_IS_NOT_CURRENT = "is not current"
 
 
 def create_new_bottle(telegram_user_id: int, capacity: float, is_current: bool):
-    # TODO create new bottle on the backend
-    pass
+    user = user_api.get_user(telegram_user_id)
+    return bottle_api.create_bottle(uuid.uuid4(), user["id"], capacity, is_current, datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
 
 def send_entry_point_question(bot: Bot, chat_id: str):
@@ -31,21 +33,20 @@ def send_entry_point_question(bot: Bot, chat_id: str):
 
 
 def bottle_capacity(update: Update, context: CallbackContext):
-    try:
-        reply_message = update.message.text
-        match = re.match(CAPACITY_REPLY_REGEX, reply_message)
+    reply_message = update.message.text
+    match = re.match(CAPACITY_REPLY_REGEX, reply_message)
 
-        if match is None:
-            return STATE_CAPACITY
-
-        capacity = float(match.group(1).replace(',', '.'))
-        # bottle = create_new_bottle(update.message.from_user.id, capacity, True)
-        # TODO save new bottle as current on the backend
-
-        send_question(context.bot, update.effective_chat.id)
-    except Exception:  # TODO remove this try except clause if is not necesary
-        context.bot.send_message(chat_id=update.effective_chat.id, text=translation("bottle-capacity-value-error"))
+    if match is None:
         return STATE_CAPACITY
+
+    capacity = float(match.group(1).replace(',', '.'))
+    bottle = create_new_bottle(update.message.from_user.id, capacity, True)
+
+    if bottle is False:
+        context.bot.send_message(chat_id=update.effective_chat.id, text=translation("create_bottle_error"))
+        return STATE_CAPACITY
+
+    send_question(context.bot, update.effective_chat.id)
 
     return STATE_DRINKED_AMOUNT
 
