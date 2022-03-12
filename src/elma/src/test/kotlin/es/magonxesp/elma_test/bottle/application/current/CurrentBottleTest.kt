@@ -41,7 +41,7 @@ class CurrentBottleTest : BottleModuleUnitTestCase() {
             repository.findCurrentBottle(bottle.owner)
         } returns bottle
 
-        val found = current.getCurrent(bottle.owner)
+        val found = current.getCurrent(bottle.owner.value)
 
         assertEquals(bottle, found)
     }

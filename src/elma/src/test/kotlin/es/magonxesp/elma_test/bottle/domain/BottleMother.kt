@@ -1,7 +1,7 @@
 package es.magonxesp.elma_test.bottle.domain
 
 import es.magonxesp.elma.bottle.domain.Bottle
-import es.magonxesp.elma.shared.domain.DateUtils
+import es.magonxesp.elma.shared.domain.date.DateUtils
 import es.magonxesp.elma_test.shared.domain.bottle.BottleIdMother
 import es.magonxesp.elma_test.shared.domain.user.UserIdMother
 import java.util.Random

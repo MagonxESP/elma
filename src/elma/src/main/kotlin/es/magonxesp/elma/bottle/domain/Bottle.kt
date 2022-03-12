@@ -14,8 +14,21 @@ data class Bottle(
     var current: BottleCurrent
 ) {
     data class BottleCapacity(val value: Double)
-    data class BottleStartedDate(override val value: String) : DateValueObject(value = value)
-    data class BottleFinishedDate(override var value: String?) : DateValueObject(value = value)
+
+    data class BottleStartedDate(override val value: String) : DateValueObject(value = value) {
+        init {
+            toLocalDateTime()
+        }
+    }
+
+    data class BottleFinishedDate(override var value: String?) : DateValueObject(value = value) {
+        init {
+            if (!value.isNullOrEmpty()) {
+                toLocalDateTime()
+            }
+        }
+    }
+
     data class BottleCurrent(val value: Boolean)
 
     companion object {

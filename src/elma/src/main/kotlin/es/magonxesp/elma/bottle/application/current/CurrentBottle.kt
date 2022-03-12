@@ -3,6 +3,7 @@ package es.magonxesp.elma.bottle.application.current
 import es.magonxesp.elma.bottle.domain.Bottle
 import es.magonxesp.elma.bottle.domain.BottleRepository
 import es.magonxesp.elma.shared.domain.user.UserId
+import java.util.UUID
 
 class CurrentBottle(private val repository: BottleRepository) {
 
@@ -20,8 +21,8 @@ class CurrentBottle(private val repository: BottleRepository) {
         repository.save(bottle)
     }
 
-    fun getCurrent(user: UserId): Bottle {
-        return repository.findCurrentBottle(user)
+    fun getCurrent(user: UUID): Bottle {
+        return repository.findCurrentBottle(UserId(user))
     }
 
 }
