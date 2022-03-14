@@ -1,7 +1,7 @@
-package es.magonxesp.elma.api.controller.v1.bottle
+package es.magonxesp.elma.api.bottle.v1.controller
 
-import es.magonxesp.elma.api.requests.v1.bottle.BottleResponse
-import es.magonxesp.elma.api.requests.v1.bottle.CreateRequest
+import es.magonxesp.elma.api.bottle.v1.BottleResponse
+import es.magonxesp.elma.api.bottle.v1.CreateRequest
 import es.magonxesp.elma.bottle.bottleCreator
 import es.magonxesp.elma.shared.domain.date.InvalidDateTimeFormatException
 import org.springframework.http.HttpStatus

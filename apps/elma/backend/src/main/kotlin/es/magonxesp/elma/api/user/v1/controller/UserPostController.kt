@@ -1,6 +1,6 @@
-package es.magonxesp.elma.api.controller.v1.user
+package es.magonxesp.elma.api.user.v1.controller
 
-import es.magonxesp.elma.api.requests.v1.user.CreateRequest
+import es.magonxesp.elma.api.user.v1.CreateRequest
 import es.magonxesp.elma.user.creator
 import org.springframework.web.bind.annotation.*
 import java.util.*

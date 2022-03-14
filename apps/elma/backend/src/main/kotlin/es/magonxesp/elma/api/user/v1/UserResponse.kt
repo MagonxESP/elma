@@ -1,4 +1,4 @@
-package es.magonxesp.elma.api.requests.v1.user
+package es.magonxesp.elma.api.user.v1
 
 data class UserResponse(
     val id: String,

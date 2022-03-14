@@ -1,4 +1,4 @@
-package es.magonxesp.elma.api.requests.v1.bottle
+package es.magonxesp.elma.api.bottle.v1
 
 
 data class CreateRequest(

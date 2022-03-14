@@ -1,12 +1,11 @@
-package es.magonxesp.elma.api.controller.v1.user
+package es.magonxesp.elma.api.user.v1.controller
 
-import es.magonxesp.elma.api.requests.v1.user.UserResponse
+import es.magonxesp.elma.api.user.v1.UserResponse
 import es.magonxesp.elma.user.domain.UserException
 import es.magonxesp.elma.user.finder
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
-import org.springframework.web.server.ResponseStatusException
 
 @RestController
 @RequestMapping("/api/v1/user")

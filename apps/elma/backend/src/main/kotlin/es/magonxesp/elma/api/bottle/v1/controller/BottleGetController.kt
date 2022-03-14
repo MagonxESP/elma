@@ -1,6 +1,6 @@
-package es.magonxesp.elma.api.controller.v1.bottle
+package es.magonxesp.elma.api.bottle.v1.controller
 
-import es.magonxesp.elma.api.requests.v1.bottle.BottleResponse
+import es.magonxesp.elma.api.bottle.v1.BottleResponse
 import es.magonxesp.elma.bottle.bottleFinder
 import es.magonxesp.elma.bottle.currentBottle
 import es.magonxesp.elma.bottle.domain.Bottle
