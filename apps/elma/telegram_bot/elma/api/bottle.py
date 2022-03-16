@@ -4,6 +4,9 @@ from elma.api.client import request
 import json
 
 
+BOTTLE_NOT_FOUND = -1
+
+
 def create_bottle(id: uuid.UUID, owner: uuid.UUID, capacity: float, current: bool, start_date: str):
     response = request("POST", "/api/v1/bottle/create", {
         "id": str(id),
@@ -25,6 +28,9 @@ def get_bottle(bottle_id: uuid.UUID):
     if response.status_code == 200:
         return json.loads(response.content.decode("utf-8"))
 
+    if response.status_code == 404:
+        return BOTTLE_NOT_FOUND
+
     return False
 
 
@@ -35,6 +41,9 @@ def get_current_bottle(user_id: uuid.UUID):
 
     if response.status_code == 200:
         return json.loads(response.content.decode("utf-8"))
+
+    if response.status_code == 404:
+        return BOTTLE_NOT_FOUND
 
     return False
 

@@ -15,7 +15,10 @@ translations = {
     "middle": "La mitad",
     "more-than-middle": "Mas de la mitad",
     "create_user_error": "Ha ocurrido un error al conectarse con la API vuelve a intentar ejecutar el comando /start mas tarde",
+    "get_user_error": "Ha ocurrido un error al recuperar tus registros",
     "create_bottle_error": "Ha ocurrido un error al registrar tu botella, intentalo de nuevo",
+    "create_water_step_error": "Ha ocurrido un error al registrar la cantidad de agua que has bebido",
+    "create_glass_error": "Ha ocurrido un error al registrar el vaso que has bebido",
 }
 
 
