@@ -15,5 +15,6 @@
         <mapping class="es.magonxesp.elma.bottle.infraestructure.persistence.hibernate.BottleEntity"/>
         <mapping class="es.magonxesp.elma.water.infraestructure.persistence.hibernate.WaterEntity"/>
         <mapping class="es.magonxesp.elma.glass.infraestructure.persistence.hibernate.GlassEntity"/>
+        <mapping class="es.magonxesp.elma.reminder.infraestructure.persistence.hibernate.ReminderEntity"/>
     </session-factory>
 </hibernate-configuration>

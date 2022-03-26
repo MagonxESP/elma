@@ -27,14 +27,6 @@ class MysqlUserRepositoryTest : UserModuleIntegrationTestCase() {
     }
 
     @Test
-    fun `should not find all users`() {
-        val repository = MysqlUserRepository()
-        val found = repository.all()
-
-        assertContentEquals(arrayOf(), found)
-    }
-
-    @Test
     fun `should find user by id`() {
         val user = testUser()
         val repository = MysqlUserRepository()

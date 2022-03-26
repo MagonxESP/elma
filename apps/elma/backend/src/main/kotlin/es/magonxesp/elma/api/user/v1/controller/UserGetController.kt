@@ -24,4 +24,15 @@ class UserGetController {
         }
     }
 
+    @GetMapping("/all")
+    @ResponseBody
+    fun all(): Array<UserResponse> {
+        return finder().all().map {
+            UserResponse(
+                id = it.id.value.toString(),
+                telegramUserId = it.telegramUserId.value
+            )
+        }.toTypedArray()
+    }
+
 }
