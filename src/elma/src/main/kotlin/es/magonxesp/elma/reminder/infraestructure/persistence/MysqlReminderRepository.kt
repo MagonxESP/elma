@@ -40,6 +40,23 @@ class MysqlReminderRepository : ReminderRepository {
         }.toTypedArray()
     }
 
+    override fun findScheduledBetween(fromDate: Reminder.ReminderScheduledDate, untilDate: Reminder.ReminderScheduledDate): Array<Reminder> {
+        val result = HibernateDatabaseSession().query {
+            session: Session ->
+                session.createQuery("SELECT r FROM ReminderEntity r WHERE scheduled >= :from AND scheduled <= :to")
+                    .setParameter("from", fromDate.value)
+                    .setParameter("to", untilDate.value)
+        }
+
+        if (result.isNullOrEmpty()) {
+            return arrayOf()
+        }
+
+        return result.map {
+            (it as ReminderEntity).toAggregate()
+        }.toTypedArray()
+    }
+
     override fun save(reminder: Reminder) {
         HibernateDatabaseSession().transaction {
             save(ReminderEntity.fromAggregate(reminder))

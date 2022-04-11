@@ -8,29 +8,29 @@ import java.util.UUID
 class ReminderMother {
 
     companion object {
-        fun random(): Reminder = Reminder(
-            id = ReminderIdMother.random(),
+        fun random(id: UUID? = null, scheduled: String? = null, sended: String? = null): Reminder = Reminder(
+            id = ReminderIdMother.random(id),
             toUser = UserIdMother.random(),
-            scheduled = ReminderScheduledDateMother.random(),
-            sended = ReminderSendedDateMother.random()
+            scheduled = ReminderScheduledDateMother.random(scheduled),
+            sended = ReminderSendedDateMother.random(sended)
         )
     }
 
     class ReminderIdMother {
         companion object {
-            fun random(): Reminder.ReminderId = Reminder.ReminderId(UUID.randomUUID())
+            fun random(value: UUID? = null): Reminder.ReminderId = Reminder.ReminderId(value ?: UUID.randomUUID())
         }
     }
 
     class ReminderScheduledDateMother {
         companion object {
-            fun random(): Reminder.ReminderScheduledDate = Reminder.ReminderScheduledDate(DateUtils.now())
+            fun random(value: String? = null): Reminder.ReminderScheduledDate = Reminder.ReminderScheduledDate(value ?: DateUtils.now())
         }
     }
 
     class ReminderSendedDateMother {
         companion object {
-            fun random(): Reminder.ReminderSendedDate = Reminder.ReminderSendedDate(null)
+            fun random(value: String? = null): Reminder.ReminderSendedDate = Reminder.ReminderSendedDate(value)
         }
     }
 

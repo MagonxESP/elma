@@ -5,12 +5,18 @@ import es.magonxesp.elma.reminder.infraestructure.persistence.hibernate.Reminder
 import es.magonxesp.elma.shared.infraestructure.hibernate.HibernateDatabaseSession
 import es.magonxesp.elma_test.reminder.domain.ReminderMother
 import org.junit.jupiter.api.AfterEach
+import java.util.*
 
 open class ReminderModuleIntegrationTestCase {
     private val testObjects: MutableList<Reminder> = mutableListOf()
 
-    protected fun testReminder(insert: Boolean = true): Reminder {
-        return ReminderMother.random().apply {
+    protected fun testReminder(
+        insert: Boolean = true,
+        id: UUID? = null,
+        scheduled: String? = null,
+        sended: String? = null
+    ): Reminder {
+        return ReminderMother.random(id, scheduled, sended).apply {
             val reminder = this
             testObjects.add(reminder)
 
