@@ -8,7 +8,7 @@ data class Reminder(
     val id: ReminderId,
     val toUser: UserId,
     val scheduled: ReminderScheduledDate,
-    val sended: ReminderSendedDate
+    var sended: ReminderSendedDate
 ) {
     data class ReminderId(val value: UUID)
 
