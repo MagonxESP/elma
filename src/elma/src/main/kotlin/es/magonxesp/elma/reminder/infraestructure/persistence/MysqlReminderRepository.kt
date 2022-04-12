@@ -43,7 +43,7 @@ class MysqlReminderRepository : ReminderRepository {
     override fun findScheduledBetween(fromDate: Reminder.ReminderScheduledDate, untilDate: Reminder.ReminderScheduledDate): Array<Reminder> {
         val result = HibernateDatabaseSession().query {
             session: Session ->
-                session.createQuery("SELECT r FROM ReminderEntity r WHERE scheduled >= :from AND scheduled <= :to")
+                session.createQuery("SELECT r FROM ReminderEntity r WHERE (scheduled >= :from AND scheduled <= :to) AND sended IS NULL")
                     .setParameter("from", fromDate.value)
                     .setParameter("to", untilDate.value)
         }

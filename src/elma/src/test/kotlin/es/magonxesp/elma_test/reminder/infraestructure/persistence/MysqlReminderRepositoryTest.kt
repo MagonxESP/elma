@@ -53,7 +53,7 @@ class MysqlReminderRepositoryTest : ReminderModuleIntegrationTestCase() {
 
     @Test
     fun `should find between scheduled dates`() {
-        val reminder = testReminder(scheduled = "2022-04-11 00:00:00")
+        val reminder = testReminder(scheduled = "2022-04-11 00:00:00", sended = null)
         val repository = MysqlReminderRepository()
         val found = repository.findScheduledBetween(
             Reminder.ReminderScheduledDate("2022-04-10 00:00:00"),
