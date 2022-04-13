@@ -12,6 +12,8 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.springframework.session:spring-session-core:2.6.2")
+    implementation("org.springframework:spring-websocket:5.3.18")
+    implementation("org.springframework:spring-messaging:5.3.18")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test:2.6.4")
 }
