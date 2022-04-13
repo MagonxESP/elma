@@ -19,5 +19,9 @@ class DateUtils {
         fun now(): String {
             return LocalDateTime.now().format(DateTimeFormatter.ofPattern(format))
         }
+
+        fun format(date: LocalDateTime): String {
+            return date.format(DateTimeFormatter.ofPattern(format))
+        }
     }
 }

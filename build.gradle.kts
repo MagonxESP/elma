@@ -3,11 +3,13 @@ import java.net.URI
 
 plugins {
     kotlin("jvm") version "1.6.10"
+    kotlin("plugin.serialization") version "1.6.10"
 }
 
 allprojects {
     apply {
         plugin("org.jetbrains.kotlin.jvm")
+        plugin("org.jetbrains.kotlin.plugin.serialization")
     }
 
     group = "es.magonxesp"
@@ -26,6 +28,7 @@ allprojects {
         implementation("javax.xml.bind:jaxb-api:2.3.1")
         implementation("org.glassfish.jaxb:jaxb-runtime:2.3.1")
         implementation("mysql:mysql-connector-java:8.0.28")
+        implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2")
 
         testImplementation(kotlin("test"))
         testImplementation("io.mockk:mockk:1.12.2")
