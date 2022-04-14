@@ -74,4 +74,17 @@ class MysqlReminderRepositoryTest : ReminderModuleIntegrationTestCase() {
         assertEquals(reminder, found)
     }
 
+    @Test
+    fun `should update`() {
+        val reminder = testReminder(sended = null)
+        val repository = MysqlReminderRepository()
+
+        reminder.sended = Reminder.ReminderSendedDate("2022-04-14 17:26:39")
+
+        repository.save(reminder)
+        val found = repository.find(reminder.id)
+
+        assertEquals(reminder, found)
+    }
+
 }

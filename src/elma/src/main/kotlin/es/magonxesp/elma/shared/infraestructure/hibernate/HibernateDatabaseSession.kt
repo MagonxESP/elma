@@ -69,7 +69,7 @@ class HibernateDatabaseSession {
     }
 
     fun save(`object`: Any) {
-        session!!.save(`object`)
+        session!!.saveOrUpdate(`object`)
     }
 
     fun remove(`object`: Any) {
